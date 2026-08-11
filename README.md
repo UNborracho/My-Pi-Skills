@@ -26,6 +26,7 @@ Add the `skills/` directory to your skill path, e.g. Claude Code: `~/.claude/ski
 | [tdd](skills/tdd/SKILL.md) | Test-driven development workflow | Building features or fixing bugs test-first |
 | [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | Diagnosis loop for hard bugs and performance regressions | Something is broken, throwing, failing, or slow |
 | [to-tickets](skills/to-tickets/SKILL.md) | Breaks a plan, spec, or conversation into tracer-bullet tickets with blocking edges | Planning or decomposing work |
+| [context-loop-guard](skills/context-loop-guard/SKILL.md) | Behavioral rules against thinking loops, repeated failed attempts, and over-planning in long, heavily-compacted sessions | Session has been compacted multiple times, model overthinking without acting, or repeating the same tool calls |
 
 ## Security
 
