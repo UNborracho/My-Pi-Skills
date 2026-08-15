@@ -1,0 +1,10 @@
+{
+  "zai-coding-cn": {
+    "type": "apiKey",
+    "key": "YOUR_ZAI_CODING_CN_API_KEY"
+  },
+  "deepseek": {
+    "type": "apiKey",
+    "key": "YOUR_DEEPSEEK_API_KEY"
+  }
+}

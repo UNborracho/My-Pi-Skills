@@ -1,1 +1,7 @@
 .DS_Store
+
+# Never commit real secrets — only *.example.json templates belong in config/
+config/auth.json
+config/web-search.json
+config/settings.local.json
+config/*.real.json

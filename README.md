@@ -1,6 +1,6 @@
 # My Pi Skills
 
-Personal Agent Skills collection following the [Agent Skills standard](https://agentskills.io/specification), for [pi](https://github.com/earendil-works/pi), Claude Code, Codex, and other agent harnesses that support the standard.
+Personal pi skills & extensions collection — also serves as the sync source for your pi configuration across machines.
 
 ## Install
 
@@ -17,6 +17,43 @@ Then restart pi or run `/reload`.
 
 Add the `skills/` directory to your skill path, e.g. Claude Code: `~/.claude/skills`.
 
+## Sync pi config to a new machine
+
+```bash
+# 1. install pi, then:
+git clone git@github.com:UNborracho/my-pi-skills.git && cd my-pi-skills
+
+# 2. apply settings, create secret templates (never overwrites existing keys)
+bash scripts/bootstrap.sh
+
+# 3. fill in API keys (never committed to the repo)
+#     ~/.pi/agent/auth.json
+#     ~/.pi/web-search.json
+
+# 4. load skills + extensions from this repo, install npm packages from settings
+pi install git:github.com/UNborracho/my-pi-skills
+pi update --all
+
+# 5. restart pi or run /reload
+```
+
+After a change on this machine, sync to others:
+
+```bash
+# this machine:  git push
+# other machines: git pull && bash scripts/bootstrap.sh --force-settings && pi update --all
+```
+
+### What is synced, and how
+
+| Item | Source of truth | Notes |
+|------|-----------------|-------|
+| Skills | `skills/` | Loaded as a pi package (`pi.extensions`/`pi.skills` in `package.json`) |
+| Custom extensions | `extensions/` | Drop `.ts` files there — see `extensions/README.md` |
+| Provider / model / theme / npm packages | `config/settings.example.json` | No secrets; applied by `bootstrap.sh` |
+| API keys (auth.json, web-search.json) | per-machine | Only `*.example.json` templates are committed; fill in keys locally |
+| MCP servers (e.g. zhipu-vision) | per-machine | Configured interactively, not portable — re-add via `/mcp` on each machine |
+
 ## Skills
 
 | Skill | What it does | When to use |
@@ -29,7 +66,7 @@ Add the `skills/` directory to your skill path, e.g. Claude Code: `~/.claude/ski
 
 ## Security
 
-Skills can instruct the agent to perform any action and may include executable code. Review skill content before use.
+Skills can instruct the agent to perform any action and may include executable code. Review skill content before use. API keys are never committed — only placeholder templates live in `config/`.
 
 ## License
 
