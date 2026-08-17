@@ -5,3 +5,7 @@ config/auth.json
 config/web-search.json
 config/settings.local.json
 config/*.real.json
+
+# Local pi settings (mirror of ~/.pi/agent/settings.json) — never commit
+settings.json
+config/settings.json
