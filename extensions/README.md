@@ -4,6 +4,17 @@ Custom pi extensions live here. When this repo is installed as a pi package
 (`pi install git:github.com/UNborracho/my-pi-skills`), everything in this
 directory is loaded automatically (declared in `package.json` → `pi.extensions`).
 
+## Extensions in this repo
+
+- `agent-browser.ts` — browser automation tools (`browser_open`, `browser_snapshot`, `browser_click`, `browser_fill`, `browser_get_text`, `browser_screenshot`, `browser_read`, `browser_close`) wrapping the [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) CLI.
+
+  Requirement on each machine:
+
+  ```bash
+  npm install -g agent-browser
+  agent-browser install   # first time only; downloads Chrome for Testing
+  ```
+
 ## Adding an extension
 
 Drop a file in this directory:
@@ -52,4 +63,3 @@ After pushing, on each other machine:
 pi update --all        # pulls the new repo ref and reloads extensions
 ```
 
-No extensions here yet — this directory exists to establish the convention.
