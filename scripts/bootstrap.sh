@@ -73,7 +73,7 @@ Next steps:
   1. Fill in API keys:
        ~/.pi/agent/auth.json
        ~/.pi/web-search.json
-  2. Load skills + extensions from this repo:
+  2. Load skills from this repo:
        pi install git:github.com/UNborracho/my-pi-skills
      Install any npm packages listed in settings.json:
        pi update --all

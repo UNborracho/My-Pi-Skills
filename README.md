@@ -1,21 +1,6 @@
 # My Pi Skills
 
-Personal pi skills & extensions collection — also serves as the sync source for your pi configuration across machines.
-
-## Install
-
-### pi
-
-```bash
-pi install git:github.com/UNborracho/my-pi-skills
-pi config      # enable the skills you want
-```
-
-Then restart pi or run `/reload`.
-
-### Other harnesses
-
-Add the `skills/` directory to your skill path, e.g. Claude Code: `~/.claude/skills`.
+Personal pi skills collection — the sync source for your pi configuration across machines.
 
 ## Sync pi config to a new machine
 
@@ -30,7 +15,7 @@ bash scripts/bootstrap.sh
 #     ~/.pi/agent/auth.json
 #     ~/.pi/web-search.json
 
-# 4. load skills + extensions from this repo, install npm packages from settings
+# 4. load skills from this repo, install npm packages from settings
 pi install git:github.com/UNborracho/my-pi-skills
 pi update --all
 
@@ -48,9 +33,8 @@ After a change on this machine, sync to others:
 
 | Item | Source of truth | Notes |
 |------|-----------------|-------|
-| Skills | `skills/` | Loaded as a pi package (`pi.extensions`/`pi.skills` in `package.json`) |
-| Custom extensions | `extensions/` | Drop `.ts` files there — see `extensions/README.md` |
-| Provider / model / theme / npm packages | `config/settings.example.json` | No secrets; applied by `bootstrap.sh` |
+| Skills | `skills/` | Loaded as a pi package (`pi.skills` in `package.json`) |
+| Provider / model / theme / npm packages / subagent overrides | `config/settings.example.json` | No secrets; applied by `bootstrap.sh` |
 | API keys (auth.json, web-search.json) | per-machine | Only `*.example.json` templates are committed; fill in keys locally |
 | MCP servers (e.g. zhipu-vision) | per-machine | Configured interactively, not portable — re-add via `/mcp` on each machine |
 
@@ -59,8 +43,6 @@ After a change on this machine, sync to others:
 | Skill | What it does | When to use |
 |-------|--------------|-------------|
 | [grilling](skills/grilling/SKILL.md) | Interviews you relentlessly about a plan, decision, or idea, mapping it as a design tree until a shared understanding is reached | Stress-testing a plan or idea; any "grill" trigger phrase |
-| [code-review](skills/code-review/SKILL.md) | Reviews changes since a fixed point along two axes: Standards and Spec | Reviewing a branch, PR, or WIP changes |
-| [tdd](skills/tdd/SKILL.md) | Test-driven development workflow | Building features or fixing bugs test-first |
 | [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | Diagnosis loop for hard bugs and performance regressions | Something is broken, throwing, failing, or slow |
 | [to-tickets](skills/to-tickets/SKILL.md) | Breaks a plan, spec, or conversation into tracer-bullet tickets with blocking edges | Planning or decomposing work |
 

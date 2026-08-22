@@ -1,11 +1,10 @@
 {
   "name": "my-pi-skills",
   "version": "1.0.0",
-  "description": "Personal Agent Skills collection following the Agent Skills standard, for pi and other agent harnesses",
+  "description": "Personal pi skills collection + config sync source across machines",
   "license": "MIT",
   "keywords": ["pi-package", "agent-skills"],
   "pi": {
-    "skills": ["./skills"],
-    "extensions": ["./extensions"]
+    "skills": ["./skills"]
   }
 }
